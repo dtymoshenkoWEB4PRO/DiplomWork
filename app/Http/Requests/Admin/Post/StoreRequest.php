@@ -26,7 +26,9 @@ class StoreRequest extends FormRequest
         return [
             'title' => 'required|string',
             'content' => 'required|string',
-            'category_id' => 'required|exists:categories,id'
+            'category_id' => 'required|exists:categories,id',
+            'votes' => 'required|integer',
+            'user_id' => 'required|integer'
         ];
     }
 
@@ -35,6 +37,8 @@ class StoreRequest extends FormRequest
         return [
             'title.required' => 'It is obligatory field',
             'title.string' => 'It is not a string',
+            'votes' => 'required|integer',
+            'user_id' => 'required|integer'
         ];
     }
 }

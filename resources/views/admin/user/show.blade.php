@@ -39,8 +39,34 @@
                                     <td>{{$user->id}}</td>
                                 </tr>
                                 <tr>
-                                    <td>Name</td>
+                                    <td>Ім'я</td>
                                     <td>{{$user->name}}</td>
+                                </tr>
+                                <tr>
+                                    <td>По-батькові</td>
+                                    <td>{{$user->patronymic}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Фамілія</td>
+                                    <td>{{$user->surname}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Email</td>
+                                    <td>{{$user->email}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Номер телефону</td>
+                                    <td>{{$user->mobilenumber}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Членський білет в органзіації</td>
+                                    <td>{{$user->ticket}}</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="{{ route('admin.post.user', $user->id )}}" class="text-warning">
+                                            <span align="center" >До всіх петицій користувача</span>
+                                        </a>
+                                    </td>
                                 </tr>
                                 </tbody>
                             </table>

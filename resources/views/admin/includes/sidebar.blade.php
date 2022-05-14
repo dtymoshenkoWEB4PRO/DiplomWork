@@ -18,7 +18,7 @@
 
             <li class="nav-item">
                 <a href="{{route('admin.user.index')}}" class="nav-link">
-                    <i class="nav-icon far fa-users"></i>
+                    <i class="nav-icon fas fa-users"></i>
                     <p>
                         Користувачі
                     </p>
@@ -27,7 +27,7 @@
 
             <li class="nav-item">
                 <a href="{{route('admin.post.index')}}" class="nav-link">
-                    <i class="nav-icon far fa-clipboard"></i>
+                    <i class="nav-icon fas fa-clipboard"></i>
                     <p>
                         Петиції
                     </p>

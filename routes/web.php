@@ -17,6 +17,10 @@ Route::group(['namespace' => 'Main'], function () {
     Route::get('/', 'IndexController')->name('main.index');
 });
 
+Route::group(['namespace' => 'Post', 'prefix' => 'posts'], function () {
+    Route::get('/', 'IndexController')->name('post.index');
+});
+
 Route::group([
     'as' => 'auth.', // имя маршрута, например auth.index
     'prefix' => 'auth', // префикс маршрута, например auth/index
@@ -50,25 +54,22 @@ Route::group([
     // восстановление пароля
     Route::post('reset-password', 'Auth\ResetPasswordController@reset')
         ->name('reset-password');
-    // сообщение о необходимости проверки адреса почты
-    Route::get('verify-message', 'Auth\VerifyEmailController@message')
-        ->name('verify-message');
-    // подтверждение адреса почты нового пользователя
-    Route::get('verify-email/token/{token}/id/{id}', 'Auth\VerifyEmailController@verify')
-        ->where('token', '[a-f0-9]{32}')
-        ->where('id', '[0-9]+')
-        ->name('verify-email');
+
 });
 
 Route::group(['namespace' => 'Personal', 'prefix' => 'personal', 'middleware'=>['auth','personal']], function(){
-    Route::group(['namespace' => 'Main'], function () {
-        Route::get('/', 'IndexController');
+    Route::group(['namespace' => 'Main', 'prefix' => 'main'], function () {
+        Route::get('/', 'IndexController')->name('personal.main.index');;
+    });
+    Route::group(['namespace' => 'Liked', 'prefix' => 'liked'], function () {
+        Route::get('/', 'IndexController')->name('personal.liked.index');;
     });
     Route::group(['namespace' => 'Post', 'prefix' => 'posts'], function () {
         Route::get('/', 'IndexController')->name('personal.post.index');
         Route::get('/create', 'CreateController')->name('personal.post.create');
         Route::post('/', 'StoreController')->name('personal.post.store');
         Route::get('/{post}', 'ShowController')->name('personal.post.show');
+        Route::get('/liked/{post}', 'LikedShowController')->name('personal.post.likedshow');
         Route::get('/{post}/edit', 'EditController')->name('personal.post.edit');
         Route::patch('/{post}', 'UpdateController')->name('personal.post.update');
         Route::delete('/{post}', 'DeleteController')->name('personal.post.delete');
@@ -82,6 +83,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware'=>['auth'
 
     Route::group(['namespace' => 'Post', 'prefix' => 'posts'], function () {
         Route::get('/', 'IndexController')->name('admin.post.index');
+        Route::get('/{user}/posts', 'UserController')->name('admin.post.user');
         Route::get('/create', 'CreateController')->name('admin.post.create');
         Route::post('/', 'StoreController')->name('admin.post.store');
         Route::get('/{post}', 'ShowController')->name('admin.post.show');

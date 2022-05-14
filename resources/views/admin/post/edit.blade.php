@@ -43,6 +43,13 @@
                                 <div class="test-danger">It is must have field. {{$message}} </div>
                                 @enderror
                             </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="votes" placeholder="Кількість потрібних голосів"
+                                       value="{{$post->votes}}">
+                                @error('votes')
+                                <div class="test-danger">It is must have field. {{$message}} </div>
+                                @enderror
+                            </div>
                             <div class="form-group w-50">
                                 <label>Обрати категорію</label>
                                 <select name="category_id" class="form-control">

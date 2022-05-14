@@ -16,7 +16,9 @@ class StoreController extends Controller
 
     public function __invoke(StoreRequest $request)
     {
+
         $data = $request->validated();
+
         $password = Str::random(10);
         $data['password'] = Hash::make($password);
         $user = User::firstOrCreate(['email' => $data['email']], $data);

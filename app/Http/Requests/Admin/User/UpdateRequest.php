@@ -26,8 +26,7 @@ class UpdateRequest extends FormRequest
         return [
             'name' => 'required|string',
             'email' => 'required|string|email|unique:users,email,'.$this->user_id,
-            'user_id' => 'required|integer|exists:users,id',
-            'role'=>'required|integer'
+            'user_id' => 'required|integer|exists:users,id'
         ];
     }
 
@@ -39,8 +38,8 @@ class UpdateRequest extends FormRequest
             'email.required' => 'It is obligatory field',
             'email.string' => 'It is not a string',
             'email.email' => 'Correct mail format: example@some.domain.com',
-            'email.unique' => 'Such user is exist',
-            'role'=> 'required|integer'
+            'email.unique' => 'Such user is exist'
+
         ];
     }
 }

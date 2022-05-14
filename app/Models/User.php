@@ -61,4 +61,14 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         $this->notify(new SendVerifyWuthQueueNotification());
     }
+
+    public function post()
+    {
+        return $this->belongsTo(Post::class, 'user_id', 'id');
+    }
+
+    public function likedPosts()
+    {
+        return $this->belongsToMany(Post::class, 'post_user_likes', 'user_id','post_id');
+    }
 }

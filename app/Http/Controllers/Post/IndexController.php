@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Main;
+namespace App\Http\Controllers\Post;
 
 use App\Http\Controllers\Controller;
 use App\Models\Post;
@@ -13,7 +13,7 @@ class IndexController extends Controller
         $posts = Post::paginate(6);
         $likedPosts = Post::withCount('likedUsers')->orderBy('liked_users_count', 'DESC')->get()->take(4);
 
-        return view('main.index', compact('posts','likedPosts'));
+        return view('post.index', compact('posts','likedPosts'));
 
     }
 }

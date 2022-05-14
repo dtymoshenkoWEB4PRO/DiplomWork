@@ -42,6 +42,12 @@
                                 <div class="test-danger">It is must have field. {{$message}} </div>
                                 @enderror
                             </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="votes" placeholder="Кількість потрібних голосів">
+                                @error('votes')
+                                <div class="test-danger">It is must have field. {{$message}} </div>
+                                @enderror
+                            </div>
                             <div class="form-group w-50">
                                 <label>Обрати категорію петиції</label>
                             <select name="category_id" class="form-control">
@@ -49,6 +55,9 @@
                                 <option value="{{$category->id}}">{{$category->title}}</option>
                                 @endforeach
                             </select>
+                            </div>
+                            <div class="form-group w-50">
+                                <input type="hidden" name="user_id" value="{{auth()->user()->id}}">
                             </div>
                             <div class="form-group">
                                 <input type="submit" class="btn btn-block btn-primary" value="Додати">
