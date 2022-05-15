@@ -8,12 +8,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Posts</h1>
+                        <h1 class="m-0">Нова петиція</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">Dashboard v1</li>
+                            <li class="breadcrumb-item"><a href="{{route('personal.main.index')}}">Головна сторінка</a></li>
+                            <li class="breadcrumb-item active"><a href="{{route('personal.post.index')}}">Мої петиції</a></li></li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -27,11 +27,11 @@
                 <!-- Small boxes (Stat box) -->
                 <div class="row">
                     <div class="col-12">
-                        <h6>Add posts</h6>
+                        <h6>Додати петицію</h6>
                         <form action=" {{ route('personal.post.store') }} " method="POST">
                             @csrf
                             <div class="form-group w-25">
-                                <input type="text" class="form-control" name="title" placeholder="Posts name">
+                                <input type="text" class="form-control" name="title" placeholder="Назва петиції">
                                 @error('title')
                                 <div class="test-danger">It is must have field. {{$message}} </div>
                                 @enderror
@@ -43,13 +43,13 @@
                                 @enderror
                             </div>
                             <div class="form-group w-25">
-                                <input type="text" class="form-control" name="votes" placeholder="Number of desired votes">
+                                <input type="text" class="form-control" name="votes" placeholder="Кількість необхідних голосів">
                                 @error('votes')
                                 <div class="test-danger">It is must have field. {{$message}} </div>
                                 @enderror
                             </div>
                             <div class="form-group w-50">
-                                <label>Select category</label>
+                                <label>Обрати категорію</label>
                             <select name="category_id" class="form-control">
                                 @foreach($categories as $category)
                                 <option value="{{$category->id}}">{{$category->title}}</option>
@@ -60,7 +60,7 @@
                                 <input type="hidden" name="user_id" value="{{auth()->user()->id}}">
                             </div>
                             <div class="form-group">
-                                <input type="submit" class="btn btn-block btn-primary" value="Add">
+                                <input type="submit" class="btn btn-block btn-primary" value="Додати">
                             </div>
                         </form>
                     </div>

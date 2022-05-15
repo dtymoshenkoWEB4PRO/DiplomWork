@@ -44,7 +44,7 @@
                         <!-- small box -->
                         <div class="small-box bg-success">
                             <div class="inner">
-                                <h3>{{$data['postsCount']}}</h3>
+                                <h3>{{$data['categoriesCount']}}</h3>
                                 <p>Категорії</p>
                             </div>
                             <div class="icon">
@@ -58,7 +58,7 @@
                         <!-- small box -->
                         <div class="small-box bg-warning">
                             <div class="inner">
-                                <h3>{{$data['categoriesCount']}}</h3>
+                                <h3>{{$data['postsCount']}}</h3>
 
                                 <p>Петиції</p>
                             </div>

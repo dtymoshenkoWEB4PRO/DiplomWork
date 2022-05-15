@@ -20,8 +20,8 @@
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">Dashboard v1</li>
+                            <li class="breadcrumb-item"><a href="{{route('personal.main.index')}}">Головна сторінка</a></li>
+                            <li class="breadcrumb-item active"><a href="{{route('personal.post.index')}}">Мої петиції</a></li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -45,8 +45,28 @@
                                     <td>{{$post->id}}</td>
                                 </tr>
                                 <tr>
-                                    <td>Title</td>
+                                    <td>Назва</td>
                                     <td>{{$post->title}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Зміст петиції</td>
+                                    <td>{{strip_tags($post->content)}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Дата подання петиції</td>
+                                    <td>{{($post->created_at)}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Кількість необхідних голосів</td>
+                                    <td>{{$post->votes}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Кількість вже набраних голосів</td>
+                                    <td>{{count($post->likedUsers)}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Люди, що підписали петицію</td>
+                                    <td>{{$post->user->name}}</td>
                                 </tr>
                                 </tbody>
                             </table>

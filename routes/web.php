@@ -19,7 +19,23 @@ Route::group(['namespace' => 'Main'], function () {
 
 Route::group(['namespace' => 'Post', 'prefix' => 'posts'], function () {
     Route::get('/', 'IndexController')->name('post.index');
+    Route::get('/{post}', 'ShowController')->name('post.show');
+    Route::group(['namespace' => 'Comment', 'prefix' => '{post}/comments'], function () {
+        Route::post('/', 'StoreController')->name('post.comment.store');
+    });
+    Route::group(['namespace' => 'Like', 'prefix' => '{post}/likes'], function () {
+        Route::post('/', 'StoreController')->name('post.like.store');
+    });
 });
+
+
+Route::group(['namespace' => 'Category', 'prefix' => 'categories'], function () {
+    Route::get('/', 'IndexController')->name('category.index');
+    Route::group(['namespace' => 'Post', 'prefix' => '{categories}/posts'], function () {
+        Route::get('/', 'IndexController')->name('category.post.index');
+    });
+});
+
 
 Route::group([
     'as' => 'auth.', // имя маршрута, например auth.index
@@ -37,9 +53,7 @@ Route::group([
     // аутентификация
     Route::post('login', 'Auth\LoginController@authenticate')
         ->name('auth');
-    // выход
-    Route::get('logout', 'Auth\LoginController@logout')
-        ->name('logout');
+
     // форма ввода адреса почты
     Route::get('forgot-password', 'Auth\ForgotPasswordController@form')
         ->name('forgot-form');

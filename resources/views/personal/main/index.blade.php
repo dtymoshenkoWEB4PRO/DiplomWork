@@ -30,7 +30,7 @@
                         <!-- small box -->
                         <div class="small-box bg-warning">
                             <div class="inner">
-                                <h3>12</h3>
+                                <h3>2</h3>
 
                                 <p>Петиції</p>
                             </div>
@@ -46,14 +46,14 @@
                         <!-- small box -->
                         <div class="small-box bg-danger">
                             <div class="inner">
-                                <h3>#</h3>
+                                <h3>4</h3>
 
                                 <p>Петиції, за які я вже проголосував</p>
                             </div>
                             <div class="icon">
                                 <i class="far fa-heart"></i>
                             </div>
-                            <a href="#" class="small-box-footer">Більше інформації<i class="fas fa-arrow-circle-right"></i></a>
+                            <a href="{{route('personal.liked.index')}}" class="small-box-footer">Більше інформації<i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                     <!-- ./col -->
