@@ -61,12 +61,24 @@
                                     <td>{{$post->votes}}</td>
                                 </tr>
                                 <tr>
-                                    <td>Кількість вже набраних голосів</td>
+                                    <td>Кількість проголосовавших анонімно</td>
+                                    <td>{{count($post->likedUsersAnonim)}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Кількість проголосувавших з власного імені</td>
                                     <td>{{count($post->likedUsers)}}</td>
                                 </tr>
                                 <tr>
                                     <td>Люди, що підписали петицію</td>
-                                    <td>{{$post->user->name}}</td>
+                                    <td>
+                                    @foreach($users as $user)
+                                        <p>{{$user->name}}</p>
+                                        @endforeach
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Спільно вже набрано голосів</td>
+                                    <td>{{count($post->likedUsers)+count($post->likedUsersAnonim)}}</td>
                                 </tr>
                                 </tbody>
                             </table>

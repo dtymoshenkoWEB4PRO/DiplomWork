@@ -31,6 +31,14 @@
                     </p>
                 </a>
             </li>
+            <li class="nav-item">
+                <a href="{{route('personal.anonimliked.index')}}" class="nav-link">
+                    <i class="nav-icon fas fa-users"></i>
+                    <p>
+                        Петиції, за які я вже проголосував анонімно
+                    </p>
+                </a>
+            </li>
         </ul>
     </div>
     <!-- /.sidebar -->

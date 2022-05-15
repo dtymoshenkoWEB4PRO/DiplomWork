@@ -29,21 +29,29 @@
                         </div>
                         <div class="col-md-4" data-aos="fade-right" data-aos-delay="100">
                             <p>Вже набрана кількість голосів</p>
-                            <p align="center" class="blog-post-category">{{count($post->likedUsers)}}</p>
+                            <p align="center" class="blog-post-category">{{count($post->likedUsers)+count($post->likedUsersAnonim)}}</p>
                         </div>
                         <div class="col-md-4" data-aos="fade-right" data-aos-delay="100">
-                            <form action="{{route('post.like.store', $post->id)}}" method="POST">
-                                @csrf
-                                @auth()
-                                    @if(auth()->user()->likedPosts->contains($post->id))
-                                        <input class="btn btn-outline-primary" type="submit" disabled value="Ви вже проголосували за цю петицію">
-                                    @else
-                                        <input class="btn btn-outline-primary" type="submit" value="Проголосувати за цю петицію">
-                                    @endif
-                                @endauth
-                            </form>
+                            @if(!(auth()->user()->likedPosts->contains($post->id) or auth()->user()->likedPostsAnonim->contains($post->id)))
+                                <form action="{{route('post.like.store', $post->id)}}" method="POST">
+                                    @csrf
+                                    @auth()
+                                        <input class="btn btn-outline-primary" type="submit"
+                                               value="Проголосувати за цю петицію">
+                                    @endauth
+                                </form>
+                                <form action="{{route('post.likeanonim.store', $post->id)}}" method="POST">
+                                    @csrf
+                                    @auth()
+                                        <input class="btn btn-outline-primary" type="submit"
+                                               value="Проголосувати за цю петицію анонімно">
+                                    @endauth
+                                </form>
+                            @else
+                                <input class="btn btn-outline-primary" type="submit" disabled value="Ви вже проголосували за цю петицію">
+                            @endif
                             @guest()
-                                <form action="{{route('personal.main.index')}}" >
+                                <form action="{{route('personal.main.index')}}">
                                     @csrf
                                     <input class="btn btn-outline-primary" type="submit" value="Авторизуватися, щоб проголосувати">
                                 </form>

@@ -29,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    public const HOME = '/personal';
+    public const HOME = '/personal/main';
     protected $redirectTo = self::HOME;
 
     /**

@@ -9,6 +9,8 @@ class ShowController extends BaseController
 {
     public function __invoke(Post $post)
     {
-        return view('personal.post.show', compact('post'));
+        $users = $post->likedUsers;
+        $anonimUsers = $post->likedUsersAnonim;
+        return view('personal.post.show', compact('post', 'users', 'anonimUsers'));
     }
 }

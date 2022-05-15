@@ -42,6 +42,10 @@
                                     <td>{{$post->title}}</td>
                                 </tr>
                                 <tr>
+                                    <td>Автор</td>
+                                    <td>{{$post->user->name}}</td>
+                                </tr>
+                                <tr>
                                     <td>Зміст петиції</td>
                                     <td>{{strip_tags($post->content)}}</td>
                                 </tr>
@@ -55,7 +59,7 @@
                                 </tr>
                                 <tr>
                                     <td>Кількість вже набраних голосів</td>
-                                    <td>{{count($post->likedUsers)}}</td>
+                                    <td>{{count($post->likedUsers)+count($post->likedUsersAnonim)}}</td>
                                 </tr>
                                 </tbody>
                             </table>

@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::group(['namespace' => 'Main'], function () {
     Route::get('/', 'IndexController')->name('main.index');
 });
@@ -25,6 +26,9 @@ Route::group(['namespace' => 'Post', 'prefix' => 'posts'], function () {
     });
     Route::group(['namespace' => 'Like', 'prefix' => '{post}/likes'], function () {
         Route::post('/', 'StoreController')->name('post.like.store');
+    });
+    Route::group(['namespace' => 'LikeAnonim', 'prefix' => '{post}/likesanonim'], function () {
+        Route::post('/', 'StoreController')->name('post.likeanonim.store');
     });
 });
 
@@ -78,6 +82,9 @@ Route::group(['namespace' => 'Personal', 'prefix' => 'personal', 'middleware'=>[
     Route::group(['namespace' => 'Liked', 'prefix' => 'liked'], function () {
         Route::get('/', 'IndexController')->name('personal.liked.index');;
     });
+    Route::group(['namespace' => 'AnonimLiked', 'prefix' => 'anonimliked'], function () {
+        Route::get('/', 'IndexController')->name('personal.anonimliked.index');;
+    });
     Route::group(['namespace' => 'Post', 'prefix' => 'posts'], function () {
         Route::get('/', 'IndexController')->name('personal.post.index');
         Route::get('/create', 'CreateController')->name('personal.post.create');
@@ -89,6 +96,8 @@ Route::group(['namespace' => 'Personal', 'prefix' => 'personal', 'middleware'=>[
         Route::delete('/{post}', 'DeleteController')->name('personal.post.delete');
     });
 });
+
+
 
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware'=>['auth','admin']], function(){
     Route::group(['namespace' => 'Main'], function () {

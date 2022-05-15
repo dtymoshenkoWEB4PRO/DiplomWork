@@ -71,4 +71,10 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->belongsToMany(Post::class, 'post_user_likes', 'user_id','post_id');
     }
+
+    public function likedPostsAnonim()
+    {
+        return $this->belongsToMany(Post::class, 'post_user_like_anonims', 'user_id', 'post_id');
+    }
+
 }
