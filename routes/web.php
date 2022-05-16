@@ -90,6 +90,7 @@ Route::group(['namespace' => 'Personal', 'prefix' => 'personal', 'middleware'=>[
         Route::get('/create', 'CreateController')->name('personal.post.create');
         Route::post('/', 'StoreController')->name('personal.post.store');
         Route::get('/{post}', 'ShowController')->name('personal.post.show');
+        Route::get('/{post}/pdf', 'PdfController')->name('personal.post.pdf');
         Route::get('/liked/{post}', 'LikedShowController')->name('personal.post.likedshow');
         Route::get('/{post}/edit', 'EditController')->name('personal.post.edit');
         Route::patch('/{post}', 'UpdateController')->name('personal.post.update');
