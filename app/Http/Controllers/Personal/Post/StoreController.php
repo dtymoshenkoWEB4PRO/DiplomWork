@@ -15,7 +15,7 @@ class StoreController extends BaseController
 
         $data = $request->validated();
         $this->service->store($data);
-        //dd($data);
+
         return redirect()->route('personal.post.index');
     }
 }

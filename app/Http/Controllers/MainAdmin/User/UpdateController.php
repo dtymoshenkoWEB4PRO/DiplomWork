@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Admin\User;
+namespace App\Http\Controllers\MainAdmin\User;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\User\UpdateRequest;
+use App\Http\Requests\MainAdmin\User\UpdateRequest;
 use App\Models\User;
 
 class UpdateController extends Controller
@@ -12,7 +12,7 @@ class UpdateController extends Controller
     {
         $data = $request->validated();
         $user->update($data);
-        return view('admin.user.show', compact('user'));
+        return view('mainadmin.user.show', compact('user'));
 
     }
 }

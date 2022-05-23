@@ -59,6 +59,19 @@
                                     @endforeach
                                 </select>
                             </div>
+                            <div class="form-group w-25">
+                                <label>
+                                    Активна петиція
+                                </label>
+                                <input name="visible" type="text" class="form-control" value="{{$post->visible}}"/>
+                            </div>
+
+                            <div class="form-group w-25">
+                                <label>
+                                    Доступна для анонімного голосування
+                                </label>
+                                <input name="can_anonim_vote" type="text" class="form-control" value="{{$post->can_anonim_vote}}"/>
+                            </div>
                             <div class="form-group w-50">
                                 <input type="hidden" name="user_id" value="{{auth()->user()->id}}">
                             </div>

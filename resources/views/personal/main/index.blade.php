@@ -30,8 +30,7 @@
                         <!-- small box -->
                         <div class="small-box bg-warning">
                             <div class="inner">
-                                <h3>2</h3>
-
+                                <h3>{{$data['posts']}}</h3>
                                 <p>Петиції</p>
                             </div>
                             <div class="icon">
@@ -46,8 +45,7 @@
                         <!-- small box -->
                         <div class="small-box bg-danger">
                             <div class="inner">
-                                <h3>4</h3>
-
+                                <h3>{{$data['likesCount']}}</h3>
                                 <p>Петиції, за які я вже проголосував</p>
                             </div>
                             <div class="icon">
@@ -61,7 +59,7 @@
                         <!-- small box -->
                         <div class="small-box bg-danger">
                             <div class="inner">
-                                <h3>1</h3>
+                                <h3>{{$data['likesCountAnonim']}}</h3>
 
                                 <p>Петиції, за які я вже проголосував анонімно</p>
                             </div>

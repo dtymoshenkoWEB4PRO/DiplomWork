@@ -139,6 +139,22 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware'=>['auth'
 
 });
 
+Route::group(['namespace' => 'MainAdmin', 'prefix' => 'mainadmin', 'middleware'=>['auth','mainadmin']], function () {
+    Route::group(['namespace' => 'Main'], function () {
+        Route::get('/', 'IndexController')->name('mainadmin.main.index');
+    });
+
+    Route::group(['namespace' => 'User', 'prefix' => 'users'], function () {
+        Route::get('/', 'IndexController')->name('mainadmin.user.index');
+        Route::get('/create', 'CreateController')->name('mainadmin.user.create');
+        Route::post('/', 'StoreController')->name('mainadmin.user.store');
+        Route::get('/{user}', 'ShowController')->name('mainadmin.user.show');
+        Route::get('/{user}/edit', 'EditController')->name('mainadmin.user.edit');
+        Route::patch('/{user}', 'UpdateController')->name('mainadmin.user.update');
+        Route::delete('/{user}', 'DeleteController')->name('mainadmin.user.delete');
+    });
+});
+
 Auth::routes(['verify'=> true]);
 
 

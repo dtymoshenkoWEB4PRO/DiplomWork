@@ -1,4 +1,4 @@
-@extends('admin.layouts.main')
+@extends('mainadmin.layouts.main')
 @section('content')
 
     <!-- Content Wrapper. Contains page content -->
@@ -22,7 +22,7 @@
                 <div class="row">
                     <div class="col-12">
                         <h6>Додати користувача</h6>
-                        <form action=" {{ route('admin.user.store') }} " method="POST" class="w-25">
+                        <form action=" {{ route('mainadmin.user.store') }} " method="POST" class="w-25">
                             @csrf
                             <div class="form-group">
                                 <input type="text" class="form-control" name="name" placeholder="Ім'я користувача">
@@ -36,7 +36,19 @@
                                 <div class="test-danger">{{$message}} </div>
                                 @enderror
                             </div>
-                            <input type="hidden" name="role_id" value="1">
+                            <div class="form-group w-50">
+                                <label>Select user role</label>
+                                <select name="role" class="form-control">
+                                    @foreach($roles as $id => $role)
+                                        <option value="{{$id}}"
+                                            {{$id == old('role') ? 'selected' : ''}}
+                                        >{{$role}}</option>
+                                    @endforeach
+                                </select>
+                                @error('role')
+                                <div class="text-danger">{{$message}}</div>
+                                @enderror
+                            </div>
                             <input type="submit" class="btn btn-block btn-primary" value="Додати">
                         </form>
                     </div>

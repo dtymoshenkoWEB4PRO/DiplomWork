@@ -49,6 +49,10 @@
                                     <td>{{$post->title}}</td>
                                 </tr>
                                 <tr>
+                                    <td>Категорія петиції</td>
+                                    <td>{{$post->category->title}}</td>
+                                </tr>
+                                <tr>
                                     <td>Зміст петиції</td>
                                     <td>{{strip_tags($post->content)}}</td>
                                 </tr>
@@ -62,8 +66,16 @@
                                     <td>{{$post->votes}}</td>
                                 </tr>
                                 <tr>
-                                    <td>Кількість набраних голосів</td>
-                                    <td></td>
+                                    <td>Кількість проголосовавших анонімно</td>
+                                    <td>{{count($post->likedUsersAnonim)}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Кількість проголосувавших з власного імені</td>
+                                    <td>{{count($post->likedUsers)}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Спільно вже набрано голосів</td>
+                                    <td>{{count($post->likedUsers)+count($post->likedUsersAnonim)}}</td>
                                 </tr>
                                 </tbody>
                             </table>

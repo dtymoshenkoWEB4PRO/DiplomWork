@@ -53,6 +53,10 @@
                                     <td>{{strip_tags($post->content)}}</td>
                                 </tr>
                                 <tr>
+                                    <td>Категорія петиції</td>
+                                    <td>{{$post->category->title}}</td>
+                                </tr>
+                                <tr>
                                     <td>Дата подання петиції</td>
                                     <td>{{($post->created_at)}}</td>
                                 </tr>
@@ -84,6 +88,10 @@
                                     <td>Завантажити у пдф</td>
                                     <td><a class="btn btn-primary" href="{{route('personal.post.pdf', $post->id)}}">Експорт
                                             у PDF</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Перейти до форум під петицією</td>
+                                    <td><a class="btn btn-primary"  href="{{route('post.show',$post->id)}}">До петиції на сайті</a></td>
                                 </tr>
                                 </tbody>
                             </table>

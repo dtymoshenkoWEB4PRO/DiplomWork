@@ -13,7 +13,7 @@ class Post extends Model
 
     protected $table = 'posts';
     protected $guarded = 'false';
-    protected $fillable = ['title','content','category_id', 'votes', 'user_id'];
+    protected $fillable = ['title','content','category_id', 'votes', 'user_id','can_anonim_vote','visible'];
 
     public function category()
     {

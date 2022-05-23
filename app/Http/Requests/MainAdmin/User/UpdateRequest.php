@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Admin\User;
+namespace App\Http\Requests\MainAdmin\User;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -25,9 +25,9 @@ class UpdateRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
-            'email' => 'required|string|email|unique:users,email,' . $this->user_id,
-            'user_id' => 'required|integer|exists:users,id',
-            'role' => 'required|integer'
+            'email' => 'required|string|email|unique:users,email,'.$this->user_id,
+            'role'=> 'required|integer'
+
         ];
     }
 

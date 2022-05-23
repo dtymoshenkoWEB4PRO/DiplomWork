@@ -1,4 +1,4 @@
-@extends('admin.layouts.main')
+@extends('mainadmin.layouts.main')
 @section('content')
 
     <!-- Content Wrapper. Contains page content -->
@@ -9,8 +9,8 @@
                 <div class="row mb-2">
                     <div class="col-sm-6 d-flex align-items-center">
                         <h1 class="m-0 mr-2">{{$user->name}}</h1>
-                        <a href="{{ route('admin.user.edit', $user->id )}}" class="text-success"><i class="fas fa-pencil-alt"></i></a>
-                            <form action="{{route('admin.user.delete', $user->id )}}" method="POST">
+                        <a href="{{ route('mainadmin.user.edit', $user->id )}}" class="text-success"><i class="fas fa-pencil-alt"></i></a>
+                            <form action="{{route('mainadmin.user.delete', $user->id )}}" method="POST">
                                 @csrf
                                 @method('delete')
                                 <button type="submit" class="border-0 bg-transparent">
@@ -42,14 +42,13 @@
                                     <td>Ім'я</td>
                                     <td>{{$user->name}}</td>
                                 </tr>
+                                <tr>
                                     <td>Email</td>
                                     <td>{{$user->email}}</td>
                                 </tr>
-                                <tr>
-                                    <td><a href="{{ route('admin.post.user', $user->id )}}" class="text-warning">
-                                            <span align="center" >До всіх петицій користувача</span>
-                                        </a>
-                                    </td>
+                                 <tr>
+                                    <td>Роль користувача</td>
+                                    <td>{{$user->role}}</td>
                                 </tr>
                                 </tbody>
                             </table>

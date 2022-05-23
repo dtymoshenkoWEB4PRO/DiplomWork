@@ -32,24 +32,36 @@
                             <p align="center" class="blog-post-category">{{count($post->likedUsers)+count($post->likedUsersAnonim)}}</p>
                         </div>
                         <div class="col-md-4" data-aos="fade-right" data-aos-delay="100">
+                            @auth()
                             @if(!(auth()->user()->likedPosts->contains($post->id) or auth()->user()->likedPostsAnonim->contains($post->id)))
+                                @if($post->can_anonim_vote)
                                 <form action="{{route('post.like.store', $post->id)}}" method="POST">
                                     @csrf
-                                    @auth()
+
                                         <input class="btn btn-outline-primary" type="submit"
                                                value="Проголосувати за цю петицію">
-                                    @endauth
+
                                 </form>
                                 <form action="{{route('post.likeanonim.store', $post->id)}}" method="POST">
                                     @csrf
-                                    @auth()
+
                                         <input class="btn btn-outline-primary" type="submit"
                                                value="Проголосувати за цю петицію анонімно">
-                                    @endauth
+
                                 </form>
+                                    @else
+                                    <form action="{{route('post.like.store', $post->id)}}" method="POST">
+                                    @csrf
+
+                                        <input class="btn btn-outline-primary" type="submit"
+                                               value="Проголосувати за цю петицію">
+
+                                </form>
+                                    @endif
                             @else
                                 <input class="btn btn-outline-primary" type="submit" disabled value="Ви вже проголосували за цю петицію">
                             @endif
+                            @endauth
                             @guest()
                                 <form action="{{route('personal.main.index')}}">
                                     @csrf

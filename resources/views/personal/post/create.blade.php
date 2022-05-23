@@ -43,7 +43,7 @@
                                 @enderror
                             </div>
                             <div class="form-group w-25">
-                                <input type="text" class="form-control" name="votes" placeholder="Кількість необхідних голосів">
+                                <input type="number" class="form-control" name="votes" placeholder="Кількість необхідних голосів">
                                 @error('votes')
                                 <div class="test-danger">It is must have field. {{$message}} </div>
                                 @enderror
@@ -56,6 +56,21 @@
                                 @endforeach
                             </select>
                             </div>
+
+                            <div class="form-group w-25">
+                                <label>
+                                    Активна петиція
+                                </label>
+                                <input name="visible" type="text" class="form-control"/>
+                            </div>
+
+                            <div class="form-group w-25">
+                                <label>
+                                    Доступна для анонімного голосування
+                                </label>
+                                <input name="can_anonim_vote" type="text" class="form-control"/>
+                            </div>
+
                             <div class="form-group w-50">
                                 <input type="hidden" name="user_id" value="{{auth()->user()->id}}">
                             </div>

@@ -27,8 +27,10 @@ class UpdateRequest extends FormRequest
             'title' => 'required|string',
             'content' => 'required|string',
             'category_id' => 'required|exists:categories,id',
-            'votes' => 'required|integer',
-            'user_id' => 'required|integer'
+            'votes' => 'required|integer|gt:0',
+            'user_id' => 'required|integer',
+            'can_anonim_vote' => 'required|integer',
+            'visible' => 'required|integer',
         ];
     }
 }
