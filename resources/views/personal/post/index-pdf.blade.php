@@ -15,31 +15,29 @@
         padding: 22px; /* Поля вокруг текста */
     }
 </style>
-<table id="view_tbl" class="table table-hover text-nowrap">
+<table id="view_tbl" class="table">
     <tbody>
         <tr>
-            <td>Назва петиції</td>
+            <td><strong>Назва петиції</strong></td>
             <td>{{ $post->title }}</td>
         </tr>
         <tr>
-            <td>Автор петиції</td>
+            <td><strong>Автор петиції</strong></td>
             <td>{{ $post->user->name }}</td>
         </tr>
         <tr>
-            <td>Кількість набраних голосів</td>
+            <td><strong>Кількість набраних голосів</strong></td>
             <td>{{ count($post->likedUsers)+count($post->likedUsersAnonim) }}</td>
         </tr>
         <tr>
-            <td>Дата створення петиції</td>
+            <td><strong>Дата створення петиції</strong></td>
             <td>{{ $post->created_at }}</td>
         </tr>
-        <tr>
-            <td class="layer">{{ strip_tags($post->content) }}</td>
-        </tr>
-
     </tbody>
 </table>
-<span>Список підписантів:</span>
+<strong>Зміст:</strong>
+<div> {{ strip_tags($post->content) }}</div>
+<strong>Список підписантів:</strong>
 <table class="table table-bordered">
     <thead>
     <tr>

@@ -13,9 +13,9 @@ class UpdateController extends BaseController
     {
 
         $data = $request->validated();
-
         $this->service->update($data, $post);
-        return view('personal.post.show', compact('post'));
+        $posts = Post::whereUserId(auth()->user()->id)->orderByDesc('created_at')->paginate();
+        return view('personal.post.index', compact('posts'));
 
     }
 }

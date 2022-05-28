@@ -20,7 +20,7 @@ class StoreController extends Controller
 
         if( $allVotes === $post->votes)
         {
-            Mail::to($email)->send(new PostsMail($post->votes));
+            Mail::to($email)->send(new PostsMail($allVotes));
         }
 
         return redirect()->route('post.show', $post->id);

@@ -57,7 +57,7 @@
             <div class="col-lg-9 mx-auto">
                 @if($relatedPosts->count() > 0)
                 <section class="related-posts">
-                    <h2 class="section-title mb-4" align="center" data-aos="fade-up">Схожі петиції за категорією</h2>
+                    <h2 class="section-title mb-4" align="center" data-aos="fade-up">Схожі петиції за категорією</h2>`
                     <div class="row">
                         @foreach($relatedPosts as $relatedPost)
                         <div class="col-md-4" data-aos="fade-right" data-aos-delay="100">

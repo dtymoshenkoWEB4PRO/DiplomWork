@@ -3,7 +3,6 @@
 namespace App\Mail\User;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
@@ -18,10 +17,10 @@ class PostsMail extends Mailable
      *
      * @return void
      */
-    public function __construct($votes)
+    public function __construct($allVotes)
     {
         //
-        $this->votes = $votes;
+        $this->allVotes = $allVotes;
     }
 
     /**

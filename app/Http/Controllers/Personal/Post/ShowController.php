@@ -12,7 +12,6 @@ class ShowController extends BaseController
     {
         $users = $post->likedUsers;
         $anonimUsers = $post->likedUsersAnonim;
-
         return view('personal.post.show', compact('post', 'users', 'anonimUsers'));
     }
 }

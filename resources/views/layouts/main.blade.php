@@ -27,20 +27,36 @@
                             <a class="nav-link" href="{{route('category.index')}}">Категорії</a>
                         </li>
                         @if(!Auth::check())
-                        <li class="nav-item">
+                        <li class="nav-item active">
                             <a class="nav-link" href="{{route('login')}}">Авторизація</a>
                         </li>
                         @else
-                            <li class="nav-item">
+                            <li class="nav-item active">
                                 <a class="nav-link" href="{{route('personal.main.index')}}">Особистий кабінет</a>
                             </li>
-                            <li class="nav-item">
-                                <form action="{{route('logout')}}" method="POST">
-                                    @csrf
-                                    <input class="btn btn-outline-primary" type="submit" value="Вийти">
-                                </form>
-                            </li>
+
                         @endif
+
+                        <li class="nav-item active">
+                            <form action="{{ route('search') }}" method="GET">
+                            <div class="input-group" data-widget="sidebar-search">
+
+                                <input class="form-control form-control-sidebar" type="search" placeholder="Назва петиції" name="search"
+                                        aria-label="Пошук">
+                                <div class="input-group-append">
+                                    <button class="btn btn-sidebar">
+                                        <i class="fas fa-fw fa-search"></i>
+                                    </button>
+                                </div>
+
+                            </div>
+                            </form>
+{{--                        <form action="{{ route('search') }}" method="GET">--}}
+{{--                            <input type="text" name="search" required/>--}}
+{{--                            <input class="btn btn-outline-primary" type="submit"--}}
+{{--                                   value="Пошук">--}}
+{{--                        </form>--}}
+                        </li>
                     </ul>
                 </div>
             </nav>

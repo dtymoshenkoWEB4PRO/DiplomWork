@@ -38,7 +38,7 @@
 
                         <!-- /.card-header -->
                         <div class="card-body table-responsive p-0">
-                            <table class="table table-hover text-nowrap">
+                            <table class="table">
                                 <tbody>
                                 <tr>
                                     <td>Id</td>
@@ -59,6 +59,14 @@
                                 <tr>
                                     <td>Дата подання петиції</td>
                                     <td>{{($post->created_at)}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Петиція активна</td>
+                                    <td>@if($post->visible)Так @else Ні @endif </td>
+                                </tr>
+                                <tr>
+                                    <td>Петиція доступна для анонімного голосування</td>
+                                    <td>@if($post->can_anonim_vote)Так @else Ні @endif </td>
                                 </tr>
                                 <tr>
                                     <td>Кількість необхідних голосів</td>

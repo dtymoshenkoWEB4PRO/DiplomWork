@@ -43,6 +43,9 @@
                                 @enderror
                             </div>
                             <div class="form-group w-25">
+                                <label>
+                                    Кількість потрібних для набрання голосів
+                                </label>
                                 <input type="number" class="form-control" name="votes" placeholder="Кількість необхідних голосів">
                                 @error('votes')
                                 <div class="test-danger">It is must have field. {{$message}} </div>
@@ -56,21 +59,50 @@
                                 @endforeach
                             </select>
                             </div>
+{{--                            <div class="form-group w-25">--}}
+{{--                            <fieldset>--}}
+{{--                                <label> Активна петиція</label>--}}
+{{--                                <div>--}}
+{{--                                    <input type="radio" id="visible" name="visible"--}}
+{{--                                           value="1">--}}
+{{--                                    <label for="visible">Так</label>--}}
+{{--                                </div>--}}
+{{--                                <div>--}}
+{{--                                    <input type="radio" id="visible" name="visible" value="0">--}}
+{{--                                    <label for="visible">Ні</label>--}}
+{{--                                </div>--}}
+{{--                            </fieldset>--}}
+{{--                            </div>--}}
+{{--                            <div class="form-group w-25">--}}
+{{--                                <fieldset>--}}
+{{--                                    <label>Доступна для анонімного голосування</label>--}}
+{{--                                    <div>--}}
+{{--                                        <input type="radio" id="can_anonim_vote" name="can_anonim_vote"--}}
+{{--                                               value="1">--}}
+{{--                                        <label for="can_anonim_vote">Так</label>--}}
+{{--                                    </div>--}}
 
-                            <div class="form-group w-25">
-                                <label>
-                                    Активна петиція
-                                </label>
-                                <input name="visible" type="text" class="form-control"/>
-                            </div>
+{{--                                    <div>--}}
+{{--                                        <input type="radio" id="can_anonim_vote" name="can_anonim_vote" value="0">--}}
+{{--                                        <label for="can_anonim_vote">Ні</label>--}}
+{{--                                    </div>--}}
+{{--                                </fieldset>--}}
+{{--                            </div>--}}
+                                <div class="form-group w-50">
+                                    <label>Активна петиція</label>
+                                    <select name="visible" class="form-control">
+                                        <option value="1">Так</option>
+                                        <option value="0">Ні</option>
+                                    </select>
+                                </div>
 
-                            <div class="form-group w-25">
-                                <label>
-                                    Доступна для анонімного голосування
-                                </label>
-                                <input name="can_anonim_vote" type="text" class="form-control"/>
-                            </div>
-
+                                <div class="form-group w-50">
+                                    <label>Доступна для анонімного голосування</label>
+                                    <select name="can_anonim_vote" class="form-control">
+                                        <option value="1">Так</option>
+                                        <option value="0">Ні</option>
+                                    </select>
+                                </div>
                             <div class="form-group w-50">
                                 <input type="hidden" name="user_id" value="{{auth()->user()->id}}">
                             </div>

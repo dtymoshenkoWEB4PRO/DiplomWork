@@ -17,10 +17,12 @@ use Illuminate\Support\Facades\Route;
 Route::group(['namespace' => 'Main'], function () {
     Route::get('/', 'IndexController')->name('main.index');
 });
+Route::get('/search/', 'SearchController')->name('search');
 
 Route::group(['namespace' => 'Post', 'prefix' => 'posts'], function () {
     Route::get('/', 'IndexController')->name('post.index');
     Route::get('/{post}', 'ShowController')->name('post.show');
+Route::get('/{category}', 'FilterController')->name('post.filter');
     Route::group(['namespace' => 'Comment', 'prefix' => '{post}/comments'], function () {
         Route::post('/', 'StoreController')->name('post.comment.store');
     });
@@ -30,14 +32,13 @@ Route::group(['namespace' => 'Post', 'prefix' => 'posts'], function () {
     Route::group(['namespace' => 'LikeAnonim', 'prefix' => '{post}/likesanonim'], function () {
         Route::post('/', 'StoreController')->name('post.likeanonim.store');
     });
+
 });
 
 
 Route::group(['namespace' => 'Category', 'prefix' => 'categories'], function () {
     Route::get('/', 'IndexController')->name('category.index');
-    Route::group(['namespace' => 'Post', 'prefix' => '{categories}/posts'], function () {
-        Route::get('/', 'IndexController')->name('category.post.index');
-    });
+    Route::get('/{category}/posts', 'ShowController')->name('category.show');
 });
 
 

@@ -109,7 +109,8 @@
                             @csrf
                             <div class="row">
                                 <div class="form-group col-12" data-aos="fade-up">
-                                    <label for="comment" class="sr-only">Ваше повідомлення</label>
+                                    <label
+                                        for="comment" class="sr-only">Ваше повідомлення</label>
                                     <textarea name="message" id="comment" class="form-control" placeholder="Ваше повідомлення" rows="10">Повідомлення</textarea>
                                 </div>
                             </div>
