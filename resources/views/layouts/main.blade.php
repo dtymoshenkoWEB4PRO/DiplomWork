@@ -63,7 +63,7 @@
         </div>
     </header>
 
-@yield('content');
+@yield('content')
 
 
     <footer class="edica-footer" data-aos="fade-up">

@@ -4,11 +4,15 @@
 
 
 <main class="blog">
-    <div class="container">
-        <h1 class="edica-page-title" data-aos="fade-up">Категорії</h1>
 
-        <section class="featured-posts-section">
+
+    <section class="featured-posts-section">
+        <div class="container">
+
             <div class="row">
+                <div class="col-md-12">
+                <h1 class="edica-page-title" data-aos="fade-up">Категорії</h1>
+                </div>
                 @foreach($categories as $category)
                     <div class="col-md-4 fetured-post blog-post" data-aos="fade-up">
                         <a href="{{route('category.show',$category->id)}}" class="blog-post-permalink">
@@ -28,8 +32,9 @@
                     {{$categories->links()}}
                 </div>
             </div>
-            </section>
-    </div>
+        </div>
+    </section>
+
 </main>
 
 @endsection();
