@@ -28,11 +28,11 @@
         <section class="related-posts">
             <h2 class="section-title mb-4" align="center" data-aos="fade-up">Топ-петицій</h2>
             <div class="row">
-                @foreach($likedPosts as $post)
+                @foreach($likedPosts as $likePost)
                     <div class="col-md-4" data-aos="fade-right" data-aos-delay="100">
-                        <p class="blog-post-category">{{$post->category->title}}</p>
-                        <a href="{{route('post.show',$post->id)}}" class="blog-post-permalink">
-                            <h6 class="blog-post-title">{{$post->title}}</h6>
+                        <p class="blog-post-category">{{$likePost->category->title}}</p>
+                        <a href="{{route('post.show',$likePost->id)}}" class="blog-post-permalink">
+                            <h6 class="blog-post-title">{{$likePost->title}}</h6>
                         </a>
                     </div>
                 @endforeach

@@ -29,20 +29,20 @@
     <section class="related-posts">
         <div class="container">
             <div class="row">
-                <div class="col-md-4" data-aos="fade-right" data-aos-delay="100">
+                <div class="col-md-4" data-aos="fade-right" data-aos-delay="100" style="text-align: center;">
                     <div>
                         <p>Необхідна кількість голосів</p>
                         <p align="center" class="blog-post-category">{{$post->votes}}</p>
                     </div>
                 </div>
-                <div class="col-md-4" data-aos="fade-right" data-aos-delay="100">
+                <div class="col-md-4" data-aos="fade-right" data-aos-delay="100" style="text-align: center;">
                     <div>
                         <p>Вже набрана кількість голосів</p>
                         <p align="center"
                            class="blog-post-category">{{count($post->likedUsers)+count($post->likedUsersAnonim)}}</p>
                     </div>
                 </div>
-                <div class="col-md-4" data-aos="fade-right" data-aos-delay="100">
+                <div class="col-md-4" data-aos="fade-right" data-aos-delay="100" style="text-align: center;">
                     <div>
                         @auth()
                             @if(!(auth()->user()->likedPosts->contains($post->id) or auth()->user()->likedPostsAnonim->contains($post->id)))

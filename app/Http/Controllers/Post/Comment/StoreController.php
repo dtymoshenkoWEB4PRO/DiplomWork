@@ -18,7 +18,5 @@ class StoreController extends Controller
         Comment::create($data);
 
         return redirect()->route('post.show', $post->id);
-
-
     }
 }

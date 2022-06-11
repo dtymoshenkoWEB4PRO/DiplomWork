@@ -33,33 +33,13 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" name="patronymic"
-                                       placeholder="По-батькові користувача"
-                                       value="{{$user->patronymic}}">
-
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" name="surname" placeholder="Фамілія користувача"
-                                       value="{{$user->surname}}">
-                            </div>
-                            <div class="form-group">
                                 <input type="text" class="form-control" name="email" placeholder="Еmail користувача"
                                        value="{{$user->email}}">
                                 @error('email')
                                 <div class="test-danger">It is must have field. {{$message}} </div>
                                 @enderror
                             </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" name="mobilenumber"
-                                       placeholder="Номер телефону користувача"
-                                       value="{{$user->mobilenumber}}">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" name="ticket"
-                                       placeholder="Номер членства в організації/університеті користувача за наявністю"
-                                       value="{{$user->ticket}}">
-                            </div>
-                            <input type="hidden" name="role_id" value="1">
+                            <input type="hidden" name="role" value="1">
                             <div class="form-group w-50">
                                 <input type="hidden" name="user_id" value="{{$user->id}}">
                             </div>

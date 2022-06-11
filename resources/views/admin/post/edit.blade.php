@@ -60,6 +60,23 @@
                                     @endforeach
                                 </select>
                             </div>
+                            <div class="custom-control custom-checkbox">
+                                <input type="hidden" name="visible" value="0">
+                                <input name="visible" class="custom-control-input custom-control-input-danger"
+                                       type="checkbox" id="customCheckbox4" value="1"
+                                    {{ old('visible', $post->visible) !=1?: 'checked' }} >
+
+                                <label for="customCheckbox4" class="custom-control-label">Активна петиція</label>
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                                <input type="hidden" name="can_anonim_vote" value="0">
+                                <input name="can_anonim_vote" class="custom-control-input" type="checkbox"
+                                       id="customCheckbox2" value="1"
+                                    {{ old('can_anonim_vote', $post->can_anonim_vote) !=1?: 'checked' }} >
+
+                                <label for="customCheckbox2" class="custom-control-label">Доступна для анонімного
+                                    голосування</label>
+                            </div>
                             <div class="form-group">
                                 <input type="submit" class="btn btn-block btn-primary" value="Оновити">
                             </div>

@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Personal\Post;
+namespace App\Http\Controllers\Admin\Post;
 
 use App\Models\Post;
 
 use Barryvdh\DomPDF\Facade\Pdf;
-
 class PdfController extends BaseController
 {
     public function __invoke(Post $post)

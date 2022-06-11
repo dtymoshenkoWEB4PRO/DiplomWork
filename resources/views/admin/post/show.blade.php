@@ -33,7 +33,7 @@
         <section class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-12">
                     <div class="card">
 
                         <!-- /.card-header -->
@@ -74,8 +74,21 @@
                                     <td>{{count($post->likedUsers)}}</td>
                                 </tr>
                                 <tr>
+                                    <td>Люди, що підписали петицію</td>
+                                    <td>
+                                        @foreach($users as $user)
+                                            <p>{{$user->name}}</p>
+                                        @endforeach
+                                    </td>
+                                </tr>
+                                <tr>
                                     <td>Спільно вже набрано голосів</td>
                                     <td>{{count($post->likedUsers)+count($post->likedUsersAnonim)}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Завантажити у пдф</td>
+                                    <td><a class="btn btn-primary" href="{{route('admin.post.pdf', $post->id)}}">Експорт
+                                            у PDF</a></td>
                                 </tr>
                                 </tbody>
                             </table>

@@ -26,12 +26,12 @@
         <section class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-12">
                     <div class="card">
 
                         <!-- /.card-header -->
                         <div class="card-body table-responsive p-0">
-                            <table class="table table-hover text-nowrap">
+                            <table class="table ">
                                 <tbody>
                                 <tr>
                                     <td>Id</td>

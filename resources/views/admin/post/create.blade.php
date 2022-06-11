@@ -57,6 +57,21 @@
                             </select>
                             </div>
                             <div class="form-group w-50">
+                                <label>Активна петиція</label>
+                                <select name="visible" class="form-control">
+                                    <option value="1">Так</option>
+                                    <option value="0">Ні</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group w-50">
+                                <label>Доступна для анонімного голосування</label>
+                                <select name="can_anonim_vote" class="form-control">
+                                    <option value="1">Так</option>
+                                    <option value="0">Ні</option>
+                                </select>
+                            </div>
+                            <div class="form-group w-50">
                                 <input type="hidden" name="user_id" value="{{auth()->user()->id}}">
                             </div>
                             <div class="form-group">

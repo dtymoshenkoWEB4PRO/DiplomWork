@@ -10,6 +10,7 @@ class ShowController extends BaseController
 {
     public function __invoke(Post $post, User $user)
     {
-        return view('admin.post.show', compact('post','user'));
+        $users = $post->likedUsers;
+        return view('admin.post.show', compact('post','user','users'));
     }
 }

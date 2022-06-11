@@ -112,6 +112,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware'=>['auth'
         Route::get('/create', 'CreateController')->name('admin.post.create');
         Route::post('/', 'StoreController')->name('admin.post.store');
         Route::get('/{post}', 'ShowController')->name('admin.post.show');
+        Route::get('/{post}/pdf', 'PdfController')->name('admin.post.pdf');
         Route::get('/{post}/edit', 'EditController')->name('admin.post.edit');
         Route::patch('/{post}', 'UpdateController')->name('admin.post.update');
         Route::delete('/{post}', 'DeleteController')->name('admin.post.delete');
