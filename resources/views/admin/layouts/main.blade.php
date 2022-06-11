@@ -38,6 +38,12 @@
         </ul>
         <ul class="navbar-nav">
             <li class="nav-item">
+                <form action="{{route('main.index')}}"
+                @csrf
+                <input class="btn btn-outline-primary" type="submit" style="margin: 0 1em 0;" value="До петицій">
+                </form>
+            </li>
+            <li class="nav-item">
                 <form action="{{route('logout')}}" method="POST">
                     @csrf
                     <input class="btn btn-outline-primary" type="submit" value="Вийти">

@@ -22,7 +22,11 @@ Route::get('/search/', 'SearchController')->name('search');
 Route::group(['namespace' => 'Post', 'prefix' => 'posts'], function () {
     Route::get('/', 'IndexController')->name('post.index');
     Route::get('/{post}', 'ShowController')->name('post.show');
-Route::get('/{category}', 'FilterController')->name('post.filter');
+    Route::post('/{category}', 'FilterController')->name('post.filter');
+
+    Route::group(['namespace' => 'User', 'prefix' => '/identificate'], function () {
+        Route::get('/user', 'UseridentificateController')->name('post.user.useridentificate');
+    });
     Route::group(['namespace' => 'Comment', 'prefix' => '{post}/comments'], function () {
         Route::post('/', 'StoreController')->name('post.comment.store');
     });

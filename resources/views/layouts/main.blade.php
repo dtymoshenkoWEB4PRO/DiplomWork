@@ -32,7 +32,7 @@
                         </li>
                         @else
                             <li class="nav-item active">
-                                <a class="nav-link" href="{{route('personal.main.index')}}">Особистий кабінет</a>
+                                <a class="nav-link" href="{{route('post.user.useridentificate')}}">Особистий кабінет</a>
                             </li>
 
                         @endif
@@ -51,11 +51,7 @@
 
                             </div>
                             </form>
-{{--                        <form action="{{ route('search') }}" method="GET">--}}
-{{--                            <input type="text" name="search" required/>--}}
-{{--                            <input class="btn btn-outline-primary" type="submit"--}}
-{{--                                   value="Пошук">--}}
-{{--                        </form>--}}
+
                         </li>
                     </ul>
                 </div>
